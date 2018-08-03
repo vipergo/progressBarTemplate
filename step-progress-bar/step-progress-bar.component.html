@@ -1,0 +1,11 @@
+<div class="step-progress-bar-wrapper">
+  <div class="step-status-bar" [ngStyle]="{'width': (100 - stageWidth)+'%'}">
+    <div class="current-status" [ngStyle]="{'width': (100 * currentStepIndex)/(steps.length - 1)+'%'}"></div>
+  </div>
+  <ul class="step-progress-bar">
+    <li *ngFor="let step of steps" [ngStyle]="{'width': stageWidth+'%'}" class="section" [ngClass]="{
+      'visited': currentStepIndex >= steps.indexOf(step),
+      'current': currentStepIndex === steps.indexOf(step)
+    }"> <span class="mx-auto">{{step}}</span> </li>
+  </ul>
+</div>
